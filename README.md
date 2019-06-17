@@ -1,5 +1,7 @@
 ### build image
-docker build -t ast_filebeat -f filebeat/Dockerfile .
+cd filebeat
+docker build -t ast_filebeat -f Dockerfile .
+cd ..
 
 ### run
 docker-compose up

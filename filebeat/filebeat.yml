@@ -18,9 +18,11 @@ processors:
 #   password: "ast_elastic"
 
 output.elasticsearch:
+  #hosts: ["192.168.0.117:9200"]
   hosts: ["127.0.0.1:9200"]
   username: "elastic"
   password: "ast_elastic"
+  # index: "%{[fields.log_type]}-%{[agent.version]}-%{+yyyy.MM.dd}"
 
 processors:
   - add_host_metadata: ~
@@ -39,4 +41,4 @@ logging.files:
 
 # X-pack optional module
 monitoring.enabled: true
-onitoring.elasticsearch:
+monitoring.elasticsearch:
