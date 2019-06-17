@@ -10,8 +10,8 @@ docker-compose up -d
 ### stop
 docker-compose down
 
-# bash into container
+### bash into container
 docker exec -it ast-filebeat bash
 
-# get container logs
+### get container logs
 docker logs ast-filebeat
