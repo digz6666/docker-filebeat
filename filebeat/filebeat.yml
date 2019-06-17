@@ -22,6 +22,10 @@ output.elasticsearch:
   username: "elastic"
   password: "ast_elastic"
 
+processors:
+  - add_host_metadata: ~
+  - add_cloud_metadata: ~
+
 # Write Filebeat own logs only to file to avoid catching them with itself in docker log files
 #logging.level: error
 logging.to_files: true
@@ -34,5 +38,5 @@ logging.files:
   permissions: 0644
 
 # X-pack optional module
-xpack.monitoring.enabled: true
-xpack.monitoring.elasticsearch:
+monitoring.enabled: true
+onitoring.elasticsearch:

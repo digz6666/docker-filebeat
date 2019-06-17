@@ -1,5 +1,5 @@
 ### build image
-docker build -t ast_filebeat -f Dockerfile .
+docker build -t ast_filebeat -f filebeat/Dockerfile .
 
 ### run
 docker-compose up
@@ -15,3 +15,7 @@ docker exec -it ast-filebeat bash
 
 ### get container logs
 docker logs ast-filebeat
+
+### browse docker volume
+docker volume inspect docker-filebeat_filebeat_data
+cd #mount-point
