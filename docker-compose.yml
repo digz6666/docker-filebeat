@@ -1,0 +1,22 @@
+version: "3.7"
+
+services:
+  filebeat:
+    container_name: ast-filebeat
+    image: ast_filebeat:latest
+    hostname: ast-filebeat
+    restart: always
+    volumes:
+      # needed to persist filebeat tracking data
+      - filebeat_data:/usr/share/filebeat/data:rw
+      # needed to access all docker logs (read only)
+      - /var/lib/docker/containers:/usr/share/dockerlogs/data:ro
+      # needed to access additional info about containers
+      - /var/run/docker.sock:/var/run/docker.sock
+      # needed to load logs for system and auth modules
+      # - /var/log/:/var/log/:ro
+      # needed to load logs for auditd module
+      # - /var/log/audit/:/var/log/audit/:ro
+
+volumes:
+  filebeat_data:
